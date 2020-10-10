@@ -1,4 +1,4 @@
-public class Block {
+public class Block implements Hitable{
     private int x;
     private int y;
 

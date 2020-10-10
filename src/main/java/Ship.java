@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ship {
+public class Ship implements Hitable{
     private List<Block> blockList = new ArrayList<>();
 
     public Ship(int x, int y, int length, boolean horizontal){
