@@ -15,11 +15,15 @@ public class ShipFactory {
     }
 
     public static List<Ship> generateShips(int width, int height) {
+        ShipValidator validator = new ShipValidator(width, height);
         List<Ship> shipList = new ArrayList<>();
         while(resources > 7){
             int shipLength = Math.min(resources, random.nextInt(3) + 2);
-            shipList.add(createShip(shipLength, width, height));
-            resources -= shipLength;
+            Ship newShip = createShip(shipLength, width, height);
+            if(validator.isValid(newShip, shipList)){
+                shipList.add(newShip);
+                resources -= shipLength;
+            }
         }
         int shipLength = Math.min(resources, random.nextInt(3) + 2);
         shipList.add(createShip(shipLength, width, height));

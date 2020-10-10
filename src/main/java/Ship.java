@@ -36,4 +36,18 @@ public class Ship implements Hitable{
 
         return false;
     }
+
+    public boolean collides(Ship otherShip){
+        for(Block b : blockList){
+            if(otherShip.isInside(b.getX(), b.getY()))
+                return true;
+        }
+
+        return false;
+    }
+
+    public Coordinate endCoordinate(){
+        Block end = blockList.get(blockList.size() - 1);
+        return end.getCoord();
+    }
 }
