@@ -3,7 +3,6 @@ import java.util.List;
 import java.util.Random;
 
 public class ShipFactory {
-    private static int resources = 20;
     private static Random random = new Random();
 
     private static Ship createShip(int length, int width, int height){
@@ -14,7 +13,7 @@ public class ShipFactory {
         return new Ship(x, y, length, isHorizontal);
     }
 
-    public static List<Ship> generateShips(int width, int height) {
+    public static List<Ship> generateShips(int width, int height, int resources) {
         ShipValidator validator = new ShipValidator(width, height);
         List<Ship> shipList = new ArrayList<>();
         while(resources > 7){
